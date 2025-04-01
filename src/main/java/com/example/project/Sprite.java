@@ -8,11 +8,11 @@ public class Sprite {
         this.y = y;
     }
 
-    public int getX(){return x;}//placeholder
-    public int getY(){return y;}
+    public int getX(){return x;}//returns x
+    public int getY(){return y;}//returns y
 
-    public void setX(int i){x = i;}
-    public void setY(int i){y = i;}
+    public void setX(int i){x = i;}//sets x
+    public void setY(int i){y = i;}//sets y
 
     public String getCoords(){ //returns the coordinates of the sprite ->"(x,y)"
         return "(" + x + "," + y + ")";

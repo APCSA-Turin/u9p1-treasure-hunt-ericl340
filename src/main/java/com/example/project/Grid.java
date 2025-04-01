@@ -16,7 +16,7 @@ public class Grid{
     }
 
  
-    public Sprite[][] getGrid(){return grid;}
+    public Sprite[][] getGrid(){return grid;}//returns grid
 
 
 
@@ -25,10 +25,10 @@ public class Grid{
     }
 
     public void placeSprite(Sprite s, String direction) { //place sprite in a new spot based on direction
-        int x = s.getX();
+        int x = s.getX();//converts coords to indices
         int y = size - 1 - s.getY();
-        grid[y][x] = s;
-        switch (direction) {
+        grid[y][x] = s;//places player in location
+        switch (direction) {//gets previous location
             case "w":
                 y++;
                 break;
@@ -42,14 +42,14 @@ public class Grid{
                 x--;
                 break;
         }
-        grid[y][x] = new Dot(x, size - 1 - y);
+        grid[y][x] = new Dot(x, size - 1 - y);//fills previous location with dot
     }
 
 
     public void display() { //print out the current grid to the screen
         String res = "";
-        for (Sprite[] x: grid) {
-            for (Sprite s: x) {
+        for (Sprite[] x: grid) {//for each line
+            for (Sprite s: x) {//adds the emojis
                 if (s instanceof Dot) {
                     res += "⬜";
                 }else if (s instanceof Enemy) {
@@ -62,7 +62,7 @@ public class Grid{
                     res += "🌈";
                 }
             }
-            res += "\n";
+            res += "\n";//moves to next line
         }
         res += "WASD to move: ";
         System.out.print(res);
@@ -70,7 +70,7 @@ public class Grid{
     
     public void gameover(){ //use this method to display a loss
         String res = "";
-        for (Sprite[] x: grid) {
+        for (Sprite[] x: grid) {//adds the emojis
             for (Sprite s: x) {
                 if (s instanceof Player) {
                     res += "🦄";
@@ -81,12 +81,12 @@ public class Grid{
             res += "\n";
         }
         res += "YOU LOSE";
-        System.out.println(res);
+        System.out.println(res);//moves to next line
     }
 
     public void win(){ //use this method to display a win 
         String res = "";
-        for (Sprite[] x: grid) {
+        for (Sprite[] x: grid) {//adds the emojis
             for (Sprite s: x) {
                 if (s instanceof Player) {
                     res += "🦄";
@@ -94,7 +94,7 @@ public class Grid{
                     res += "🌈";
                 }
             }
-            res += "\n";
+            res += "\n";//moves to next line
         }
         res += "YOU WIN";
         System.out.println(res);

@@ -12,9 +12,9 @@ public class Player extends Sprite {
     }
 
 
-    public int getTreasureCount(){return treasureCount;}
-    public int getLives(){return numLives;}
-    public boolean getWin(){return win;}
+    public int getTreasureCount(){return treasureCount;}//returns treasureCount
+    public int getLives(){return numLives;}//returns numLives
+    public boolean getWin(){return win;}//returns win
 
   
     //move method should override parent class, sprite

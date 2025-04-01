@@ -36,17 +36,18 @@ public class Game{
 
     public void play(){ //write your game logic here
         Scanner scanner = new Scanner(System.in);
-        Sprite[][] g;
+        Sprite[][] g;//creates the variable to store the grid
         while(true){
             clearScreen(); // Clear the screen at the beggining of the while loop
-            grid.display();
-            String direction = scanner.next();
+            grid.display();//displays the grid
+            String direction = scanner.next();//gets user input
             if (direction.equals("q")) {//forfeit on q
+                scanner.close();
                 break;
             }
-            if (player.isValid(size, direction)) {
-                g = grid.getGrid();
-                int x = player.getX();
+            if (player.isValid(size, direction)) {//checks if movement is allowed
+                g = grid.getGrid();//sets g to the grid
+                int x = player.getX();//gets grid indices
                 int y = size - player.getY() - 1;
                 switch (direction) {//changes coords based off direction
                     case "w":
@@ -62,9 +63,9 @@ public class Game{
                         x++;
                         break;
                 }
-                player.interact(10, direction, treasures.length, g[y][x]);
-                player.move(direction);
-                grid.placeSprite(player, direction);
+                player.interact(10, direction, treasures.length, g[y][x]);//interacts with objects
+                player.move(direction);//sets player coords
+                grid.placeSprite(player, direction);//update coords on grid
                 if (player.getWin() || player.getLives() <= 0) {//moves on when game ends
                     scanner.close();
                     break;
@@ -72,7 +73,7 @@ public class Game{
                 grid.placeSprite(trophy);//makes sure trophy doesn't get deleted
             }
         }
-        clearScreen();
+        clearScreen();//renders W/L screen
         if (player.getWin()) {
             grid.win();
         }else {
@@ -80,7 +81,7 @@ public class Game{
         }
     }
 
-    public void initialize(){
+    public void initialize(){//places the sprites
         grid = new Grid(size);
         player = new Player(0, 0);
         enemies = new Enemy[2];
@@ -102,6 +103,6 @@ public class Game{
     }
 
     public static void main(String[] args) {
-        Game g = new Game(10);
+        new Game(10);//creates a game
     }
 }
