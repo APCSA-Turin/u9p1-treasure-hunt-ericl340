@@ -49,8 +49,10 @@ public class Grid{
     public void display() { //print out the current grid to the screen
         String res = "";
         for (Sprite[] x: grid) {//for each line
-            for (Sprite s: x) {//adds the emojis
+            for (Sprite s: x) {//adds the emojis⬜
                 if (s instanceof Dot) {
+                    res += "⬛";
+                }else if (s instanceof Wall) {
                     res += "⬜";
                 }else if (s instanceof Enemy) {
                     res += "🦂";
