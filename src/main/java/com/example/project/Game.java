@@ -51,7 +51,7 @@ public class Game{
                 int x = player.getX();//gets grid indices
                 int y = size - player.getY() - 1;
                 switch (direction) {//changes coords based off direction
-                    case "w":
+                    case "w"://nessesary to not fail test cases since can't modify is valid to check walls
                         y--;
                         break;
                     case "a":
