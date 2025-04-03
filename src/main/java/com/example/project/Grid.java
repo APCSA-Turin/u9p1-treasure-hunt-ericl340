@@ -66,7 +66,6 @@ public class Grid{
             }
             res += "\n";//moves to next line
         }
-        res += "WASD to move: ";
         System.out.print(res);
     }
     

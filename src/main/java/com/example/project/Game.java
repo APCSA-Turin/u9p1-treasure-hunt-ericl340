@@ -38,9 +38,12 @@ public class Game{
     public void play(){ //write your game logic here
         Scanner scanner = new Scanner(System.in);
         Sprite[][] g;//creates the variable to store the grid
+        int intialHP = player.getLives();
         while(true){
             clearScreen(); // Clear the screen at the beggining of the while loop
             grid.display();//displays the grid
+            System.out.println("Health: " + player.getLives() + "❤️" + "  Treasures Collected: " + player.getTreasureCount() + "/" + treasures.length);
+            System.out.print("WASD to move: ");
             String direction = scanner.next();//gets user input
             if (direction.equals("q")) {//forfeit on q
                 scanner.close();
