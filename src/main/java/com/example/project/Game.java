@@ -38,7 +38,6 @@ public class Game{
     public void play(){ //write your game logic here
         Scanner scanner = new Scanner(System.in);
         Sprite[][] g;//creates the variable to store the grid
-        int intialHP = player.getLives();
         while(true){
             clearScreen(); // Clear the screen at the beggining of the while loop
             grid.display();//displays the grid
